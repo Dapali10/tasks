@@ -17,7 +17,9 @@ export default class Task_list extends Component{
                     </View>
                 </ImageBackground>
                 <View style={styles.taskList}>
-                    <Text>Lista de Tarefas</Text>
+                    <Task/>
+                    <Task/>
+                    <Task/>
                 </View>
             </View>
         )
