@@ -29,6 +29,6 @@ const styles = StyleSheet.create({
     },
     date:{
         fontFamily: 'Arial',
-        color: '#555',
+        color: '#666',
     }
 })
