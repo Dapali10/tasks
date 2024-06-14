@@ -1,7 +1,9 @@
 import React, {Component} from "react"
 import { StyleSheet, View, Text, ImageBackground } from "react-native"
-
+import moment from 'moment'
+import 'moment/locale/pt-br'
 import today_Image from '../../assets/imgs/today.jpg'
+import Task from "../../src/components/Task"
 
 export default class Task_list extends Component{
     render(){
@@ -14,7 +16,7 @@ export default class Task_list extends Component{
                         <Text style={styles.subTitle}>{today}</Text>
                     </View>
                 </ImageBackground>
-                <View style={styles.taskList }>
+                <View style={styles.taskList}>
                     <Text>Lista de Tarefas</Text>
                 </View>
             </View>
