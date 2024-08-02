@@ -6,6 +6,34 @@ import today_Image from '../../assets/imgs/today.jpg'
 import Task from "../../src/components/Task"
 
 export default class Task_list extends Component{
+
+    state = {
+        show_done_task: true,
+        visible_task: [],
+        tasks: [{
+            id: Math.random(),
+            description: "Estudar para prova de DDM I",
+            estimate_at: new Date(),
+            done_at: new Date(),
+        },
+        {
+            id: Math.random(),
+            description: "Fazer a prova de DDM I",
+            estimate_at: moment(new Date()).add(5, "days"),
+            done_at: null
+        }]
+}
+
+toggle_task =  task_id => {
+    const tasks = [...yhis.state.tasks]
+    tasks.forEach(task => {
+        if(task.id === task_id){
+            task.done_at = task.done_at ? null : new Date()
+        }
+    })
+}
+
+
     render(){
         const today = moment().locale('pt-br').format('dddd, DD [de] MMMM [de] YYYY')
         retur(
@@ -17,15 +45,15 @@ export default class Task_list extends Component{
                     </View>
                 </ImageBackground>
                 <View style={styles.taskList}>
-                    <Task description="Estudar para prova do Hereman"
+                    {/* <Task description="Estudar para prova de DDM I"
                         estimate_at={new Date()}
                         done_at={new Date()}
                     />
-                    <Task description="Fazer a prova do Hereman"
-                        estimate_at={new Date()}
+                    <Task description="Fazer a prova de DDM I"
+                        estimate_at={moment(new Date()).add(5, "days")}
                         done_at={null} 
                     />
-                    <Task/>
+                    <Task/> */}
                 </View>
             </View>
         )
