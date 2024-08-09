@@ -1,5 +1,5 @@
 import React, {Component} from "react"
-import { StyleSheet, View, Text, ImageBackground } from "react-native"
+import { StyleSheet, View, Text, ImageBackground, FlatList } from "react-native"
 import moment from 'moment'
 import 'moment/locale/pt-br'
 import today_Image from '../../assets/imgs/today.jpg'
@@ -31,6 +31,7 @@ toggle_task =  task_id => {
             task.done_at = task.done_at ? null : new Date()
         }
     })
+    this.setState({tasks}) 
 }
 
 
@@ -45,15 +46,23 @@ toggle_task =  task_id => {
                     </View>
                 </ImageBackground>
                 <View style={styles.taskList}>
-                    {/* <Task description="Estudar para prova de DDM I"
+                <FlatList
+                    data = {this.state.tasks}
+                    keyExtractor={item => `${item.id}`}
+                    renderItem={({item}) => <Task{...item} toggle_task = {this.toggle_task}/>}
+                 />
+                    {/* <Task
+                        description="Estudar para prova de DDM I"
                         estimate_at={new Date()}
                         done_at={new Date()}
-                    />
-                    <Task description="Fazer a prova de DDM I"
+                        
+                    />}
+                    <Task 
+                        description="Fazer a prova de DDM I"
                         estimate_at={moment(new Date()).add(5, "days")}
                         done_at={null} 
-                    />
-                    <Task/> */}
+                    /> */}
+                    <Task/> 
                 </View>
             </View>
         )
